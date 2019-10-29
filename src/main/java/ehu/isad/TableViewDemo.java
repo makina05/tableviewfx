@@ -82,7 +82,6 @@ public class TableViewDemo extends Application {
 
         // Nola editatu gelaxkak (zutabearen arabera)
         userNameCol.setCellFactory(TextFieldTableCell.<Person> forTableColumn());
-       // userNameCol.setMinWidth(100);
 
         // Nola gorde balio berria modeloan
         // On Cell edit commit (for username column)
@@ -101,7 +100,7 @@ public class TableViewDemo extends Application {
         userNameCol.setSortType(TableColumn.SortType.DESCENDING);
 
 
-        // ==== Active? (CHECH BOX) ===
+        // ==== Active? (CheckBox) ===
         activeCol.setCellValueFactory(new Callback<>() {
 
             @Override
@@ -126,13 +125,10 @@ public class TableViewDemo extends Application {
             }
         });
 
-        activeCol.setCellFactory(new Callback<>() {
-            @Override
-            public TableCell<Person, Boolean> call(TableColumn<Person, Boolean> p) {
-                CheckBoxTableCell<Person, Boolean> cell = new CheckBoxTableCell<Person, Boolean>();
-                cell.setAlignment(Pos.CENTER);
-                return cell;
-            }
+        activeCol.setCellFactory(p -> {
+            CheckBoxTableCell<Person, Boolean> cell = new CheckBoxTableCell<Person, Boolean>();
+            cell.setAlignment(Pos.CENTER);
+            return cell;
         });
 
     }

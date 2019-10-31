@@ -1,15 +1,20 @@
 package ehu.isad.model;
 
+import javafx.scene.image.Image;
+
 public class StudentsModel {
 
     private Integer studentId;
     private String firstName;
     private String lastName;
+    private Image image;
+    private String imagePath;
 
-    public StudentsModel(Integer studentId, String firstName, String lastName) {
+    public StudentsModel(Integer studentId, String firstName, String lastName, String imagePath) {
         this.studentId = studentId;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.image = new Image(imagePath);
     }
 
     public int getStudentId() {
@@ -31,4 +36,12 @@ public class StudentsModel {
     }
 
     public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 }

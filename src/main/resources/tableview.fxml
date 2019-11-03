@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.StudentsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.StudentsController">
       <center>
           <TableView fx:id="tbData" prefHeight="349.0" prefWidth="1066.0" BorderPane.alignment="CENTER">
               <columns>
@@ -17,4 +21,15 @@
               </columnResizePolicy>
           </TableView>
       </center>
+   <bottom>
+      <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="sartubotoia" mnemonicParsing="false" onAction="#sartu" text="Sartu" />
+            <Button fx:id="gordebotoia" mnemonicParsing="false" onAction="#gorde" text="Gorde" />
+         </children>
+         <opaqueInsets>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </opaqueInsets>
+      </HBox>
+   </bottom>
    </BorderPane>

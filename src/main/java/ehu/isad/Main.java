@@ -24,7 +24,7 @@ public class Main extends Application {
     pantailakKargatu();
 
     stage.setTitle("Taula Demo");
-    stage.setScene(new Scene(mainUI, 650, 275));
+    stage.setScene(new Scene(mainUI, 650, 475));
     stage.show();
   }
 

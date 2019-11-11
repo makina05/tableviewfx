@@ -5,6 +5,7 @@ import ehu.isad.model.StudentsModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
@@ -62,10 +64,24 @@ public class StudentsController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        tbData.setEditable(true);
         //make sure the property value factory should be exactly same as the e.g getStudentId from your model class
         studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
+
+
+        lastName.setCellFactory(TextFieldTableCell.forTableColumn());
+
+        lastName.setOnEditCommit(
+            new EventHandler<TableColumn.CellEditEvent<StudentsModel, String>>() {
+                public void handle(TableColumn.CellEditEvent<StudentsModel, String> t) {
+                    ((StudentsModel) t.getTableView().getItems().get(
+                        t.getTablePosition().getRow())
+                    ).setLastName(t.getNewValue());
+                }
+            }
+        );
 
         image.setCellValueFactory(new PropertyValueFactory<StudentsModel, Image>("image"));
 
@@ -78,11 +94,10 @@ public class StudentsController implements Initializable {
                     imageview.setImage(image);
                     setGraphic(imageview);
                     setAlignment(Pos.CENTER);
-
                     tbData.refresh();
             }
         };
-    });
+     });
 
 
         //add your data to the table here.
@@ -96,7 +111,8 @@ public class StudentsController implements Initializable {
 
     public void sartu(ActionEvent actionEvent) {
 
-//        try(InputStream in = new URL("https://www.eldiario.es/fotos/mejores-memes-debate-electoral_EDIIMA20191102_0433_26.jpg").openStream()){
+//        try(InputStream in = new URL("https://www.eldiario.es/fotos/mejores-memes-debate-electoral_EDIIMA20191102_0433_26.jpg").
+//            openStream()){
 //            Files.copy(in, Paths.get("build/resources/main/memes.jpg"));
 //            Files.copy(in, Paths.get("src/main/resources/memes.jpg"));
 //        } catch (MalformedURLException e) {

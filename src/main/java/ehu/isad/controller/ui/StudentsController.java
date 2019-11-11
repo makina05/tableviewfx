@@ -73,29 +73,54 @@ public class StudentsController implements Initializable {
 
         lastName.setCellFactory(TextFieldTableCell.forTableColumn());
 
-        lastName.setOnEditCommit(
-            new EventHandler<TableColumn.CellEditEvent<StudentsModel, String>>() {
-                public void handle(TableColumn.CellEditEvent<StudentsModel, String> t) {
-                    ((StudentsModel) t.getTableView().getItems().get(
-                        t.getTablePosition().getRow())
-                    ).setLastName(t.getNewValue());
-                }
-            }
-        );
+//        lastName.setOnEditCommit(
+//            new EventHandler<TableColumn.CellEditEvent<StudentsModel, String>>() {
+//                public void handle(TableColumn.CellEditEvent<StudentsModel, String> t) {
+//                    ((StudentsModel) t.getTableView().getItems().get(
+//                        t.getTablePosition().getRow())
+//                    ).setLastName(t.getNewValue());
+//                }
+//            }
+//        );
 
-        image.setCellValueFactory(new PropertyValueFactory<StudentsModel, Image>("image"));
+       image.setCellValueFactory(new PropertyValueFactory<StudentsModel, Image>("image"));
+
+//        image.setCellFactory(param -> {
+//            //Set up the ImageView
+//            final ImageView imageview = new ImageView();
+//            imageview.setFitHeight(50);
+//            imageview.setFitWidth(50);
+//            ///imageview.setImage(imageComputer); //uncommenting this places the image on all cells, even empty ones
+//            //Set up the Table
+//            TableCell<StudentsModel, Image> cell = new TableCell<StudentsModel, Image>() {
+//                @Override
+//                public void updateItem(Image item, boolean empty) {
+//                    if (item != null) {  // choice of image is based on values from item, but it doesn't matter now
+//                        imageview.setImage(item);
+//                    }
+//                }
+//            };
+//
+//            // Attach the imageview to the cell
+//            cell.setGraphic(imageview);
+//            return cell;
+//        });
+
 
         image.setCellFactory(p -> new TableCell<>() {
             public void updateItem(Image image, boolean empty) {
                 if (image != null && !empty){
-                    ImageView imageview = new ImageView();
+                    final ImageView imageview = new ImageView();
                     imageview.setFitHeight(50);
                     imageview.setFitWidth(50);
                     imageview.setImage(image);
                     setGraphic(imageview);
                     setAlignment(Pos.CENTER);
-                    tbData.refresh();
-            }
+                    // tbData.refresh();
+            }else{
+                    setGraphic(null);
+                    setText(null);
+                }
         };
      });
 

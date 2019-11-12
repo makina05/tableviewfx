@@ -9,10 +9,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
@@ -71,7 +68,27 @@ public class StudentsController implements Initializable {
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
 
 
-        lastName.setCellFactory(TextFieldTableCell.forTableColumn());
+        Callback<TableColumn<StudentsModel, String>, TableCell<StudentsModel, String>> defaultTextFieldCellFactory
+            = TextFieldTableCell.<StudentsModel>forTableColumn();
+
+        lastName.setCellFactory(col -> {
+            TableCell<StudentsModel, String> cell = defaultTextFieldCellFactory.call(col);
+            cell.itemProperty().addListener((obs, oldValue, newValue) -> {
+                TableRow row = cell.getTableRow();
+                if (row == null) {
+                    cell.setEditable(false);
+                } else {
+                    StudentsModel item = (StudentsModel) cell.getTableRow().getItem();
+                    if (item == null) {
+                        cell.setEditable(false);
+                    } else {
+                        cell.setEditable(!item.getFirstName().equals("Jon"));
+                    }
+                }
+                // cell.pseudoClassStateChanged(editableCssClass, cell.isEditable());
+            });
+            return cell ;
+        });
 
 //        lastName.setOnEditCommit(
 //            new EventHandler<TableColumn.CellEditEvent<StudentsModel, String>>() {

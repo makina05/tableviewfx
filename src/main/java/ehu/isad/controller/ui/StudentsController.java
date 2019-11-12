@@ -45,6 +45,9 @@ public class StudentsController implements Initializable {
     private Button sartubotoia;
 
     @FXML
+    private Button ezabatubotoia;
+
+    @FXML
     private Button gordebotoia;
 
 
@@ -140,5 +143,11 @@ public class StudentsController implements Initializable {
 
     public void gorde(ActionEvent actionEvent) {
         System.out.println("gorde");
+    }
+
+    public void ezabatu(ActionEvent actionEvent) {
+        int selectedIndex = tbData.getSelectionModel().getSelectedIndex();
+        if (selectedIndex>=0)
+            studentsModels.remove(selectedIndex);
     }
 }

@@ -25,6 +25,7 @@
       <HBox alignment="CENTER" prefHeight="45.0" prefWidth="600.0" spacing="20.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="sartubotoia" mnemonicParsing="false" onAction="#sartu" text="Sartu" />
+             <Button fx:id="ezabatubotoia" mnemonicParsing="false" onAction="#ezabatu" text="Ezabatu" />
             <Button fx:id="gordebotoia" mnemonicParsing="false" onAction="#gorde" text="Gorde" />
          </children>
          <opaqueInsets>

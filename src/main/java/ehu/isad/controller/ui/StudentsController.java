@@ -85,46 +85,18 @@ public class StudentsController implements Initializable {
                         cell.setEditable(!item.getFirstName().equals("Jon"));
                     }
                 }
-                // cell.pseudoClassStateChanged(editableCssClass, cell.isEditable());
             });
             return cell ;
         });
 
-//        lastName.setOnEditCommit(
-//            new EventHandler<TableColumn.CellEditEvent<StudentsModel, String>>() {
-//                public void handle(TableColumn.CellEditEvent<StudentsModel, String> t) {
-//                    ((StudentsModel) t.getTableView().getItems().get(
-//                        t.getTablePosition().getRow())
-//                    ).setLastName(t.getNewValue());
-//                }
-//            }
-//        );
+        lastName.setOnEditCommit(
+            t -> t.getTableView().getItems().get(t.getTablePosition().getRow())
+                .setLastName(t.getNewValue())
+        );
 
        image.setCellValueFactory(new PropertyValueFactory<StudentsModel, Image>("image"));
 
-//        image.setCellFactory(param -> {
-//            //Set up the ImageView
-//            final ImageView imageview = new ImageView();
-//            imageview.setFitHeight(50);
-//            imageview.setFitWidth(50);
-//            ///imageview.setImage(imageComputer); //uncommenting this places the image on all cells, even empty ones
-//            //Set up the Table
-//            TableCell<StudentsModel, Image> cell = new TableCell<StudentsModel, Image>() {
-//                @Override
-//                public void updateItem(Image item, boolean empty) {
-//                    if (item != null) {  // choice of image is based on values from item, but it doesn't matter now
-//                        imageview.setImage(item);
-//                    }
-//                }
-//            };
-//
-//            // Attach the imageview to the cell
-//            cell.setGraphic(imageview);
-//            return cell;
-//        });
-
-
-        image.setCellFactory(p -> new TableCell<>() {
+       image.setCellFactory(p -> new TableCell<>() {
             public void updateItem(Image image, boolean empty) {
                 if (image != null && !empty){
                     final ImageView imageview = new ImageView();
@@ -140,7 +112,6 @@ public class StudentsController implements Initializable {
                 }
         };
      });
-
 
         //add your data to the table here.
         tbData.setItems(studentsModels);

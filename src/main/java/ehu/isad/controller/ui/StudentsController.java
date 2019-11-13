@@ -76,25 +76,28 @@ public class StudentsController implements Initializable {
 
         lastName.setCellFactory(col -> {
             TableCell<StudentsModel, String> cell = defaultTextFieldCellFactory.call(col);
-            cell.itemProperty().addListener((obs, oldValue, newValue) -> {
-                TableRow row = cell.getTableRow();
-                if (row == null) {
-                    cell.setEditable(false);
-                } else {
-                    StudentsModel item = (StudentsModel) cell.getTableRow().getItem();
-                    if (item == null) {
+
+            cell.setOnMouseClicked(event -> {
+                if (! cell.isEmpty()) {
+                    if (cell.getTableView().getSelectionModel().getSelectedItem().getFirstName().equals("Jon")) {
                         cell.setEditable(false);
-                    } else {
-                        cell.setEditable(!item.getFirstName().equals("Jon"));
+                    }else {
+                        cell.setEditable(true);
                     }
                 }
             });
+
             return cell ;
         });
 
+
         lastName.setOnEditCommit(
-            t -> t.getTableView().getItems().get(t.getTablePosition().getRow())
-                .setLastName(t.getNewValue())
+            t -> {
+                t.getTableView().getItems().get(t.getTablePosition().getRow())
+                    .setLastName(t.getNewValue());
+
+
+            }
         );
 
        image.setCellValueFactory(new PropertyValueFactory<StudentsModel, Image>("image"));
@@ -147,7 +150,7 @@ public class StudentsController implements Initializable {
 
     public void ezabatu(ActionEvent actionEvent) {
         int selectedIndex = tbData.getSelectionModel().getSelectedIndex();
-        if (selectedIndex>=0)
+       if (selectedIndex>=0)
             studentsModels.remove(selectedIndex);
     }
 }

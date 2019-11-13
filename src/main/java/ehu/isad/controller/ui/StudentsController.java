@@ -15,6 +15,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.util.Callback;
+import javafx.util.converter.IntegerStringConverter;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -70,6 +71,9 @@ public class StudentsController implements Initializable {
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
 
+
+        studentId.setCellFactory(
+            TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
         Callback<TableColumn<StudentsModel, String>, TableCell<StudentsModel, String>> defaultTextFieldCellFactory
             = TextFieldTableCell.<StudentsModel>forTableColumn();

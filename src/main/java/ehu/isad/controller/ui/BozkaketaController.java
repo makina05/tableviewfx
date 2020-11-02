@@ -1,11 +1,10 @@
 package ehu.isad.controller.ui;
 
 import ehu.isad.Main;
-import ehu.isad.model.StudentsModel;
+import ehu.isad.model.HerrialdeModel;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
@@ -17,30 +16,29 @@ import javafx.scene.image.ImageView;
 import javafx.util.Callback;
 import javafx.util.converter.IntegerStringConverter;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
-public class StudentsController implements Initializable {
+public class BozkaketaController implements Initializable {
 
     private static int studentid = 3;
+    private static int puntuakid = 0;
     @FXML
-    private TableView<StudentsModel> tbData;
+    private TableView<HerrialdeModel> tbData;
     @FXML
-    private TableColumn<StudentsModel, Integer> studentId;
+    private TableColumn<HerrialdeModel, Integer> studentId;
 
     @FXML
-    private TableColumn<StudentsModel, String> firstName;
+    private TableColumn<HerrialdeModel, String> firstName;
 
     @FXML
-    private TableColumn<StudentsModel, String> lastName;
+    private TableColumn<HerrialdeModel, Integer> puntuakId;
 
     @FXML
-    private TableColumn<StudentsModel, Image> image;
+    private TableColumn<HerrialdeModel, String> lastName;
+
+    @FXML
+    private TableColumn<HerrialdeModel, Image> image;
 
     @FXML
     private Button sartubotoia;
@@ -55,10 +53,19 @@ public class StudentsController implements Initializable {
     private Main main;
 
     // add your data here from any source
-    private ObservableList<StudentsModel> studentsModels = FXCollections.observableArrayList(
-            new StudentsModel(1, "Jon", "Guridi", "photo.jpg"),
-            new StudentsModel(2, "Ane", "Bengoa", "security.png")
-    );
+    private ObservableList<HerrialdeModel> studentsModels = FXCollections.observableArrayList(
+            new HerrialdeModel(0,1, "Jon", "Guridi", "photo.jpg"),
+            new HerrialdeModel(0,2, "Ane", "Bengoa", "security.png"),
+            new HerrialdeModel(0,3, "Albania", "Bengoa", "albania.png"),
+            new HerrialdeModel(0,4, "Alemania", "Bengoa", "alemania.png"),
+            new HerrialdeModel(0,5, "Austria", "Bengoa", "austria.png"),
+            new HerrialdeModel(0,6, "Azerbaiyan", "Bengoa", "azerbaiyan.png"),
+            new HerrialdeModel(0,7, "Belgika", "Bengoa", "belgika.png"),
+            new HerrialdeModel(0,8, "Bielorrusia", "Bengoa", "bielorrusia.png"),
+            new HerrialdeModel(0,9, "Bosnia", "Bengoa", "bosnia.png"),
+            new HerrialdeModel(0,10, "Bulgaria", "Bengoa", "bulgaria.png"),
+            new HerrialdeModel(0,11, "Chipre", "Bengoa", "chipre.png")
+            );
 
 
 
@@ -67,6 +74,7 @@ public class StudentsController implements Initializable {
 
         tbData.setEditable(true);
         //make sure the property value factory should be exactly same as the e.g getStudentId from your model class
+        puntuakId.setCellValueFactory(new PropertyValueFactory<>("PuntuakId"));
         studentId.setCellValueFactory(new PropertyValueFactory<>("StudentId"));
         firstName.setCellValueFactory(new PropertyValueFactory<>("FirstName"));
         lastName.setCellValueFactory(new PropertyValueFactory<>("LastName"));
@@ -74,12 +82,13 @@ public class StudentsController implements Initializable {
 
         studentId.setCellFactory(
             TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
+        puntuakId.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter()));
 
-        Callback<TableColumn<StudentsModel, String>, TableCell<StudentsModel, String>> defaultTextFieldCellFactory
-            = TextFieldTableCell.<StudentsModel>forTableColumn();
+        Callback<TableColumn<HerrialdeModel, String>, TableCell<HerrialdeModel, String>> defaultTextFieldCellFactory
+            = TextFieldTableCell.<HerrialdeModel>forTableColumn();
 
         lastName.setCellFactory(col -> {
-            TableCell<StudentsModel, String> cell = defaultTextFieldCellFactory.call(col);
+            TableCell<HerrialdeModel, String> cell = defaultTextFieldCellFactory.call(col);
 
             cell.setOnMouseClicked(event -> {
                 if (! cell.isEmpty()) {
@@ -104,7 +113,7 @@ public class StudentsController implements Initializable {
             }
         );
 
-       image.setCellValueFactory(new PropertyValueFactory<StudentsModel, Image>("image"));
+       image.setCellValueFactory(new PropertyValueFactory<HerrialdeModel, Image>("image"));
 
        image.setCellFactory(p -> new TableCell<>() {
             public void updateItem(Image image, boolean empty) {
@@ -144,7 +153,7 @@ public class StudentsController implements Initializable {
 //            e.printStackTrace();
 //        }
 
-        studentsModels.add(new StudentsModel(studentid++,"meme","last", "security.png"));
+        studentsModels.add(new HerrialdeModel(0,0,"meme","last", "security.png"));
 
     }
 

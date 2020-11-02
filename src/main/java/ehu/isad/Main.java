@@ -1,6 +1,9 @@
 package ehu.isad;
 
-import ehu.isad.controller.ui.StudentsController;
+import ehu.isad.controller.ui.AukeratutaController;
+import ehu.isad.controller.ui.BozkaketaController;
+import ehu.isad.controller.ui.ComboController;
+import ehu.isad.controller.ui.HasieraController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -8,14 +11,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.Locale;
-import java.util.ResourceBundle;
 
 public class Main extends Application {
 
-  private Parent mainUI;
+  private Parent bozkaketaUI, hasieraUI, comboUI, aukeratutaUI;
   private Stage stage;
-  private StudentsController studentsController;
+  private BozkaketaController bozkaketaController;
+  private HasieraController hasieraController;
+  private ComboController comboController;
+  private AukeratutaController aukeratutaController;
 
   @Override
   public void start(Stage primaryStage) throws Exception {
@@ -23,18 +27,33 @@ public class Main extends Application {
     stage = primaryStage;
     pantailakKargatu();
 
-    stage.setTitle("Taula Demo");
-    stage.setScene(new Scene(mainUI, 650, 475));
+    stage.setTitle("Eurobisioa");
+    stage.setScene(new Scene(hasieraUI, 650, 475));
     stage.show();
   }
 
   private void pantailakKargatu() throws IOException {
 
-    FXMLLoader loaderKautotu = new FXMLLoader(getClass().getResource("/tableview.fxml"));
-    mainUI = (Parent) loaderKautotu.load();
-    studentsController = loaderKautotu.getController();
-    studentsController.setMainApp(this);
+    FXMLLoader loaderBozkaketa = new FXMLLoader(getClass().getResource("/tableview.fxml"));
+    bozkaketaUI = (Parent) loaderBozkaketa.load();
+    bozkaketaController = loaderBozkaketa.getController();
+    bozkaketaController.setMainApp(this);
 
+
+    FXMLLoader loaderHasiera = new FXMLLoader(getClass().getResource("/hasiera.fxml"));
+    hasieraUI = (Parent) loaderHasiera.load();
+    hasieraController = loaderHasiera.getController();
+    hasieraController.setMainApp(this);
+
+    FXMLLoader loaderCombo = new FXMLLoader(getClass().getResource("/combo.fxml"));
+    comboUI = (Parent) loaderCombo.load();
+    comboController = loaderCombo.getController();
+    comboController.setMainApp(this);
+
+    FXMLLoader loaderAukeratuta = new FXMLLoader(getClass().getResource("/aukeratuta.fxml"));
+    aukeratutaUI = (Parent) loaderAukeratuta.load();
+    aukeratutaController = loaderAukeratuta.getController();
+    aukeratutaController.setMainApp(this);
   }
 
 
@@ -42,8 +61,16 @@ public class Main extends Application {
     launch(args);
   }
 
-  public void mainErakutsi() {
-    stage.setScene(new Scene(mainUI));
+  public void bozkatuErakutsi() {
+    stage.setScene(new Scene(bozkaketaUI));
+    stage.show();
+  }
+  public void comboErakutsi(){
+    stage.setScene(new Scene(comboUI));
+    stage.show();
+  }
+  public void aukeratutaErakutsi(){
+    stage.setScene(new Scene(aukeratutaUI));
     stage.show();
   }
 }

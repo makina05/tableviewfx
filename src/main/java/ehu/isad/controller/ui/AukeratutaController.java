@@ -7,6 +7,7 @@ import ehu.isad.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 
 public class AukeratutaController {
     private Main main;
@@ -18,6 +19,9 @@ public class AukeratutaController {
 
     @FXML
     private Button btnAuk;
+
+    @FXML
+    private ImageView img;
 
     @FXML
     void onClick(ActionEvent event) {

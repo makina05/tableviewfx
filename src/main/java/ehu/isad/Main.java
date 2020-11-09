@@ -1,9 +1,6 @@
 package ehu.isad;
 
-import ehu.isad.controller.ui.AukeratutaController;
-import ehu.isad.controller.ui.BozkaketaController;
-import ehu.isad.controller.ui.ComboController;
-import ehu.isad.controller.ui.HasieraController;
+import ehu.isad.controller.ui.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,12 +11,13 @@ import java.io.IOException;
 
 public class Main extends Application {
 
-  private Parent bozkaketaUI, hasieraUI, comboUI, aukeratutaUI;
+  private Parent bozkaketaUI, hasieraUI, comboUI, aukeratutaUI, topUI; //TOP falta
   private Stage stage;
   private BozkaketaController bozkaketaController;
   private HasieraController hasieraController;
   private ComboController comboController;
   private AukeratutaController aukeratutaController;
+  private TopController topController;
 
   @Override
   public void start(Stage primaryStage) throws Exception {
@@ -54,6 +52,11 @@ public class Main extends Application {
     aukeratutaUI = (Parent) loaderAukeratuta.load();
     aukeratutaController = loaderAukeratuta.getController();
     aukeratutaController.setMainApp(this);
+
+    FXMLLoader loaderTop = new FXMLLoader(getClass().getResource("/top.fxml"));
+    topUI = (Parent) loaderTop.load();
+    topController = loaderTop.getController();
+    topController.setMainApp(this);
   }
 
 
@@ -71,6 +74,10 @@ public class Main extends Application {
   }
   public void aukeratutaErakutsi(){
     stage.setScene(new Scene(aukeratutaUI));
+    stage.show();
+  }
+  public void topErakutsi(){
+    stage.setScene(new Scene(topUI));
     stage.show();
   }
 }

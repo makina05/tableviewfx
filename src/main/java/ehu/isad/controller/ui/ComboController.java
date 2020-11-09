@@ -15,6 +15,7 @@ import javafx.scene.control.ComboBox;
 
 public class ComboController {
     private Main main;
+    public String aukera;
 
     @FXML
     private ResourceBundle resources;
@@ -39,6 +40,7 @@ public class ComboController {
         ObservableList<String> herrialdeak = FXCollections.observableArrayList(herrialdeakList);
 
         comboId.setItems(herrialdeak);
+        aukera = comboId.getValue();
 
     }
     public void setMainApp(Main main){

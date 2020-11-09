@@ -158,7 +158,7 @@ public class BozkaketaController implements Initializable {
     }
 
     public void gorde(ActionEvent actionEvent) {
-        System.out.println("gorde");
+        main.topErakutsi();
     }
 
     public void ezabatu(ActionEvent actionEvent) {

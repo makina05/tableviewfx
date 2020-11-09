@@ -2,8 +2,6 @@ package ehu.isad.model;
 
 import javafx.scene.image.Image;
 
-import java.net.Inet4Address;
-
 public class HerrialdeModel {
 
     private Integer studentId;

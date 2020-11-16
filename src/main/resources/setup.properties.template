@@ -1,4 +1,4 @@
-dbname=eurobisioa.sqlite
+dbname=
 user=
 password=
 useSSL=FALSE

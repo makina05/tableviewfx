@@ -30,23 +30,26 @@ application {
 
 
 // ext.moduleName = 'gradlejavafxhelloworld'
-mainClassName = "$moduleName/ehu.isad.TableViewDemo"
+mainClassName = "$moduleName/ehu.isad.Main"
 
 
 javafx {
     version = "12"
-    modules = [ ]
+    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web']
 }
 
 dependencies {
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
 }
 
 repositories {
     mavenCentral()
 }
 
-def newArgs = [ '--add-exports','java.desktop/com.apple.eawt=ALL-UNNAMED',]
+def newArgs = [ '--add-exports','java.desktop/com.apple.eawt=ALL-UNNAMED',
+               '--add-opens', 'javafx.graphics/javafx.css=de.jensd.fx.fontawesomefx.commons',]
 
 run {
     inputs.property('moduleName', moduleName)

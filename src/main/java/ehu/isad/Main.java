@@ -50,6 +50,11 @@ public class Main extends Application {
     menuController = loaderMenu.getController();
     menuController.setMainApp(this);
 
+    FXMLLoader loaderHasiera = new FXMLLoader(getClass().getResource("/hasiera.fxml"));
+    hasieraUI = (Parent) loaderHasiera.load();
+    hasieraController = loaderHasiera.getController();
+    hasieraController.setMainApp(this);
+
 
   }
 

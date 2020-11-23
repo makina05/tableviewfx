@@ -32,7 +32,6 @@ public class DBKudeatzaile {
 			try {
 				conn.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -75,7 +74,7 @@ public class DBKudeatzaile {
 			}
 		}
 
-		this.conOpen(properties.getProperty("dbpath"));
+		this.conOpen(properties.getProperty("dbname"));
 
 	}
 

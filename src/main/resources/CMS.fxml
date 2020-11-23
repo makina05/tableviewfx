@@ -29,7 +29,7 @@
                 <RowConstraints maxHeight="446.0" minHeight="10.0" prefHeight="446.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <TableView stylesheets="@../java/ehu/isad/css/fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <TableView stylesheets="@fullpackstyling.css" GridPane.columnIndex="1" GridPane.rowIndex="2">
                     <columns>
                         <TableColumn prefWidth="75.0" text="URL" />
                         <TableColumn prefWidth="197.0" text="CMS" />
@@ -47,7 +47,7 @@
                                 <Insets right="10.0" top="5.0" />
                             </HBox.margin>
                         </FontAwesomeIconView>
-                        <TextField prefHeight="25.0" prefWidth="411.0" style="-fx-border-color: #3F2B63;" stylesheets="@../java/ehu/isad/css/fullpackstyling.css">
+                        <TextField prefHeight="25.0" prefWidth="411.0" style="-fx-border-color: #3F2B63;" stylesheets="@fullpackstyling.css">
                             <opaqueInsets>
                                 <Insets />
                             </opaqueInsets>
@@ -79,7 +79,7 @@
                 </HBox>
                 <Pane prefHeight="137.0" prefWidth="836.0" GridPane.columnIndex="1">
                     <children>
-                        <Label layoutX="-4.0" layoutY="-23.0" prefHeight="46.0" prefWidth="845.0" style="-fx-background-color: #7156DD;" stylesheets="@../java/ehu/isad/css/fullpackstyling.css" text="WordPress, Joomla, Admin, Drupal" textFill="WHITE">
+                        <Label layoutX="-4.0" layoutY="-23.0" prefHeight="46.0" prefWidth="845.0" style="-fx-background-color: #7156DD;" stylesheets="@fullpackstyling.css" text="WordPress, Joomla, Admin, Drupal" textFill="WHITE">
                             <font>
                                 <Font size="22.0" />
                             </font>

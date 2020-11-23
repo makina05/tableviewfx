@@ -5,20 +5,22 @@ CREATE TABLE IF NOT EXISTS "plugins" (
 	PRIMARY KEY("plugin_id" AUTOINCREMENT)
 );
 CREATE TABLE IF NOT EXISTS "targets" (
-	"target_id"	INTEGER NOT NULL,
-	"target"	TEXT NOT NULL UNIQUE,
-	"status"	TEXT UNIQUE,
-	PRIMARY KEY("target_id" AUTOINCREMENT)
+                                         "target_id"	INTEGER NOT NULL,
+                                         "target"	TEXT NOT NULL,
+                                         "status"	TEXT,
+                                         PRIMARY KEY("target_id" AUTOINCREMENT),
+                                         UNIQUE (target, status)
 );
+
 CREATE TABLE IF NOT EXISTS "scans" (
 	"scan_id"	INTEGER NOT NULL,
 	"config_id"	INTEGER NOT NULL,
 	"plugin_id"	INTEGER NOT NULL,
 	"target_id"	INTEGER NOT NULL,
-	"version_text"	TEXT,
+	"version"	TEXT,
 	"os"	TEXT,
 	"string"	TEXT,
-	"acount"	TEXT,
+	"account"	TEXT,
 	"model"	TEXT,
 	"firmware"	TEXT,
 	"module"	TEXT,

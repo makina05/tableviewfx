@@ -40,11 +40,6 @@ public class Main extends Application {
 
 
 
-//    FXMLLoader loaderHasiera = new FXMLLoader(getClass().getResource("/hasiera.fxml"));
-//    hasieraUI = (Parent) loaderHasiera.load();
-//    hasieraController = loaderHasiera.getController();
-//    hasieraController.setMainApp(this);
-
     FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/menu.fxml"));
     menuUI = (Parent) loaderMenu.load();
     menuController = loaderMenu.getController();
@@ -63,9 +58,5 @@ public class Main extends Application {
     launch(args);
   }
 
-//  public void bozkatuErakutsi() {
-//    stage.setScene(new Scene(bozkaketaUI));
-//    stage.show();
-//  }
 
 }

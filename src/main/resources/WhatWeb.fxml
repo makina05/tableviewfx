@@ -2,11 +2,15 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.HasieraController">
     <children>
-        <Button fx:id="btn" layoutX="280.0" layoutY="71.0" mnemonicParsing="false" onAction="#onclick" text="Hasi" />
+      <TextField fx:id="txtF" layoutX="75.0" layoutY="81.0" prefHeight="26.0" prefWidth="485.0" text="www.ikasten.io" />
+        <Button fx:id="btn" layoutX="265.0" layoutY="349.0" mnemonicParsing="false" onAction="#onclick" stylesheets="@fullpackstyling.css" text="Eskaneatu" />
         <TextArea fx:id="txtArea" layoutX="10.0" layoutY="140.0" prefHeight="200.0" prefWidth="570.0" />
+      <Text layoutX="39.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL" wrappingWidth="34.07183837890625" />
     </children>
 </AnchorPane>

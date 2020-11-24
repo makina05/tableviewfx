@@ -1,16 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.HasieraController">
+<AnchorPane prefHeight="529.0" prefWidth="782.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.HasieraController">
     <children>
-      <TextField fx:id="txtF" layoutX="75.0" layoutY="81.0" prefHeight="26.0" prefWidth="485.0" text="www.ikasten.io" />
-        <Button fx:id="btn" layoutX="265.0" layoutY="349.0" mnemonicParsing="false" onAction="#onclick" stylesheets="@fullpackstyling.css" text="Eskaneatu" />
-        <TextArea fx:id="txtArea" layoutX="10.0" layoutY="140.0" prefHeight="200.0" prefWidth="570.0" />
-      <Text layoutX="39.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL" wrappingWidth="34.07183837890625" />
+      <Pane layoutY="31.0" prefHeight="72.0" prefWidth="782.0" style="-fx-background-color: green;">
+         <children>
+            <Text fill="WHITE" layoutX="69.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WhatWeb">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="69.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="target,agression,http,auth,proxy,plugins,output,logging,performance">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <TabPane layoutX="8.0" layoutY="114.0" prefHeight="382.0" prefWidth="774.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="MySQL">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="352.0" prefWidth="607.0">
+                     <children>
+                        <TextField fx:id="txtF" layoutX="54.0" layoutY="58.0" prefHeight="26.0" prefWidth="443.0" text="www.ikasten.io" />
+                          <Button fx:id="btn" layoutX="407.0" layoutY="312.0" mnemonicParsing="false" onAction="#onclick" style="-fx-background-color: green;" stylesheets="@fullpackstyling.css" text="Eskaneatu" textFill="WHITE" />
+                          <TextArea fx:id="txtArea" layoutX="51.0" layoutY="90.0" prefHeight="211.0" prefWidth="472.0" />
+                        <Text layoutX="17.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL:" wrappingWidth="34.07183837890625" />
+                        <Text layoutX="17.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Log:" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="MongoDB">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
     </children>
 </AnchorPane>

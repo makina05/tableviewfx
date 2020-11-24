@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1145.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.MenuController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="660.0" prefWidth="1111.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.MenuController">
 
     <VBox layoutX="-21.0" layoutY="-20.0" prefHeight="680.0" prefWidth="267.0" style="-fx-background-color: #3F2B63;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="-20.0">
 
@@ -52,17 +52,17 @@
         </Button>
 
     </VBox>
-    <FontAwesomeIconView fx:id="ixa" glyphName="CLOSE" layoutX="1124.0" layoutY="19.0" onMouseClicked="#onClickIxa" size="15.0" wrappingWidth="14.0" />
-    <StackPane layoutX="246.0" layoutY="28.0" prefHeight="632.0" prefWidth="899.0">
+    <FontAwesomeIconView fx:id="ixa" glyphName="CLOSE" layoutX="1074.0" layoutY="27.0" onMouseClicked="#onClickIxa" size="15.0" wrappingWidth="14.0" />
+    <StackPane layoutX="250.0" layoutY="28.0" prefHeight="632.0" prefWidth="899.0">
         <children>
-            <AnchorPane fx:id="paneCMS" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white">
-                <fx:include source="CMS.fxml" />
-            </AnchorPane>
-            <AnchorPane fx:id="paneServer" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white">
+            <AnchorPane fx:id="paneServer" prefHeight="200.0" prefWidth="852.0" style="-fx-background-color: white">
                 <fx:include source="Server.fxml" />
             </AnchorPane>
             <AnchorPane fx:id="paneWhatWeb" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white">
                 <fx:include source="WhatWeb.fxml" />
+            </AnchorPane>
+            <AnchorPane fx:id="paneCMS" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white">
+                <fx:include source="CMS.fxml" />
             </AnchorPane>
         </children>
 

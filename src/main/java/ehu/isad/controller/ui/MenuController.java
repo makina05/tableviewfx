@@ -119,7 +119,8 @@ public class MenuController {
     @FXML
     private ServerController serverController;
 
-
+    // hemen kargatzen direnak automatikoki egiten du FXML-n includeak dituelak
+    //beste kontroler baten saiatzen bagara kanpoko controller bat instantziatzen ez du automatikoki egiten, horrek ez duelako includea
 
     @FXML
     private Button btnCMS;
@@ -158,6 +159,7 @@ public class MenuController {
         if (event.getSource()==btnCMS) {
             paneCMS.toFront();
             paneCMS.requestFocus();
+            main.kargatuTaula();
         } else if (event.getSource()==btnServer){
             paneServer.toFront();
             paneServer.requestFocus();

@@ -91,4 +91,8 @@ public class Main extends Application {
 
     menuUI = (Parent) loader.load();
   }
+
+  public void kargatuTaula() {
+    cmsController.kargatuTaula();
+  }
 }

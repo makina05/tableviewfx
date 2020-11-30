@@ -27,6 +27,9 @@ public class WhatWebController {
     private ResourceBundle resources;
 
     @FXML
+    private CMSController cmsController;
+
+    @FXML
     private URL location;
 
     @FXML
@@ -74,6 +77,7 @@ public class WhatWebController {
         });
 
         taskThread.start();
+
 
     }
 

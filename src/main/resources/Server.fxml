@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.ServerController" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="539.0" prefWidth="799.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ehu.isad.controller.ui.ServerController">
+   <children>
+      <Pane layoutX="6.0" layoutY="27.0" prefHeight="104.0" prefWidth="780.0" style="-fx-background-color: #ff0000;">
+         <children>
+            <Text fill="WHITE" layoutX="37.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Server">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="37.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eskaneatutako webguneak">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Button layoutX="491.0" layoutY="462.0" mnemonicParsing="false" stylesheets="@server.css" text="Eguneratu" />
+      <TableView layoutX="228.0" layoutY="175.0" prefHeight="252.0" prefWidth="336.0" stylesheets="@server.css">
+        <columns>
+          <TableColumn prefWidth="335.2000274658203" text="Eskaneatutako webguneak:">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SEARCH" text="" />
+               </graphic>
+            </TableColumn>
+        </columns>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </TableView>
+   </children>
+</AnchorPane>

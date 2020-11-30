@@ -56,13 +56,13 @@
     <StackPane layoutX="250.0" layoutY="28.0" prefHeight="632.0" prefWidth="899.0">
         <children>
             <AnchorPane fx:id="paneServer" prefHeight="200.0" prefWidth="852.0" style="-fx-background-color: white">
-                <fx:include source="Server.fxml" />
+                <fx:include source="Server.fxml" fx:id="Server"/>
             </AnchorPane>
             <AnchorPane fx:id="paneWhatWeb" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white">
-                <fx:include source="WhatWeb.fxml" />
+                <fx:include source="WhatWeb.fxml" fx:id="WhatWeb"/>
             </AnchorPane>
-            <AnchorPane fx:id="paneCMS" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white">
-                <fx:include source="CMS.fxml" />
+            <AnchorPane fx:id="paneCMS" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #ffffff">
+                <fx:include source="CMS.fxml" fx:id="CMS"/>
             </AnchorPane>
         </children>
 

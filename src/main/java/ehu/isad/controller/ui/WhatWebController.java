@@ -18,7 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 
-public class HasieraController {
+public class WhatWebController {
     private Main main;
     private String uri;
     private String non;
@@ -37,6 +37,10 @@ public class HasieraController {
 
     @FXML
     private TextField txtF;
+
+    public WhatWebController() {
+        System.out.println("HasieraKud eraiki da");
+    }
 
 
     @FXML
@@ -133,11 +137,11 @@ public class HasieraController {
             if(System.getProperty("os.name").toLowerCase().contains("win")) {
                 System.out.println(uri);
         String komandoa = "wsl /usr/bin/whatweb --color=never --log-sql=/mnt/c"+ non +" "+ uri;
-                // TODO: sqlPath pasatu parametro gisa
+                // DONE: sqlPath pasatu parametro gisa
                 p = Runtime.getRuntime().exec
                         (komandoa);
 
-            } else {
+            } else { //TODO:windows comandoa linuxera pasatu
                 p = Runtime.getRuntime().exec("/usr/bin/whatweb --color=never " + uri);
             }
             BufferedReader input =
@@ -155,7 +159,7 @@ public class HasieraController {
     }
 
 
-    public void setMainApp(Main main){
-        this.main = main;
-    }
+//    public void setMainApp(Main main){
+//        this.main = main;
+//    }
 }

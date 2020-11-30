@@ -108,6 +108,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class MenuController {
+    private Main main;
+
+    @FXML
+    private WhatWebController whatwebController;
+
+    @FXML
+    private CMSController cmsController;
+
+    @FXML
+    private ServerController serverController;
+
+
 
     @FXML
     private Button btnCMS;
@@ -129,17 +141,29 @@ public class MenuController {
 
     @FXML
     private AnchorPane paneWhatWeb;
-    private Main main;
+
+    //ostean erabili dugun eraikitzailea hau ezartzea ere behar du funtziona dezan
+    public MenuController() {
+
+    }
+    // eraikitzaileak argumentu bat behar duenez programatu behar da, besteetan ez da behar programatzea defektuzkoa erabiltzen daualako
+    public MenuController(Main main) {
+
+        this.main = main;
+    }
 
     @FXML
     void changeScene(ActionEvent event) {
 
         if (event.getSource()==btnCMS) {
             paneCMS.toFront();
+            paneCMS.requestFocus();
         } else if (event.getSource()==btnServer){
             paneServer.toFront();
+            paneServer.requestFocus();
         } else if (event.getSource()==btnWhatWeb)
             paneWhatWeb.toFront();
+            paneWhatWeb.requestFocus();
     }
 
 
@@ -148,8 +172,15 @@ public class MenuController {
     void onClickIxa(MouseEvent event) {
         java.lang.System.exit(0);
     }
-    public void setMainApp(Main main) {
-        this.main = main;
+//    public void setMainApp(Main main) {
+//        this.main = main;
+//    }
+
+    @FXML
+    void initialize() {
+
+
     }
+
 
 }

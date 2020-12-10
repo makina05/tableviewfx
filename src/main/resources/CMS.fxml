@@ -72,7 +72,7 @@
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </TextField>
-                        <ComboBox fx:id="comboBoxId" prefHeight="25.0" prefWidth="187.0" style="-fx-border-color: #3F2B63;">
+                        <ComboBox fx:id="comboBoxId" onAction="#aukeratuta" prefHeight="25.0" prefWidth="187.0" style="-fx-border-color: #3F2B63;">
                             <HBox.margin>
                                 <Insets right="10.0" />
                             </HBox.margin>

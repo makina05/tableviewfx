@@ -1,11 +1,10 @@
 package ehu.isad.controller.ui;
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import ehu.isad.db.WhatWebDBKud;
+import ehu.isad.model.Cms;
 import ehu.isad.model.Laguntzailea;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,21 +17,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class CMSController {
     private ObservableList<Laguntzailea> data;
     private ObservableList<Laguntzailea> data2;
+    private ObservableList<Laguntzailea> data3;
+
 
     @FXML
     private ResourceBundle resources;
 
     @FXML
     private URL location;
-
-    @FXML
-    private Button btnLupa;
-
-    @FXML
-    private ComboBox<?> comboBoxId;
-
-    @FXML
-    private Button btnAddURL;
 
     @FXML
     private TableView<Laguntzailea> tableViewId;
@@ -53,15 +45,34 @@ public class CMSController {
     private TableColumn<Laguntzailea, String> lastId;
 
     @FXML
-    void initialize() {
+    private ComboBox<String> comboBoxId;
 
-    }
+    @FXML
+    private Button btnAddURL;
+
+
 
     @FXML
     void onClickLupa(ActionEvent event) {
         this.filtratu();
     }
 
+    @FXML
+    void aukeratuta(ActionEvent event) {
+        this.filtratuCombotik();
+    }
+
+    @FXML
+    public void initialize(){
+
+        List<String> cl = new ArrayList<>();
+        cl.add("WordPress");
+        cl.add("Joomla");
+        cl.add("Drupal");
+        cl.add("phpMyAdmin");
+        ObservableList<String> cmsak = FXCollections.observableArrayList(cl);
+        comboBoxId.setItems(cmsak);
+    }
     public void kargatuTaula(){
         List<Laguntzailea> lagak = WhatWebDBKud.getInstance().lortuOrrialdeak();
         data = FXCollections.observableArrayList(lagak);
@@ -86,5 +97,18 @@ public class CMSController {
         }
         data2 = FXCollections.observableArrayList(listaFiltratua);
         tableViewId.setItems(data2);
+    }
+
+    public void filtratuCombotik(){
+        String izena = comboBoxId.getValue();
+        List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
+        List<Laguntzailea> listaFiltratuaCombotik=new ArrayList<>();
+        for (int i=0;i<lista.size();i++){
+            if (lista.get(i).getString().contains(izena)){
+                listaFiltratuaCombotik.add(lista.get(i));
+            }
+        }
+        data3 = FXCollections.observableArrayList(listaFiltratuaCombotik);
+        tableViewId.setItems(data3);
     }
 }

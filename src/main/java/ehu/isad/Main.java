@@ -41,22 +41,6 @@ public class Main extends Application {
     stage.show();
   }
 
-  //  private void pantailakKargatu() throws IOException {
-//
-//
-//
-//    FXMLLoader loaderMenu = new FXMLLoader(getClass().getResource("/Menu.fxml"));
-//    menuUI = (Parent) loaderMenu.load();
-//    menuController = loaderMenu.getController();
-//    menuController.setMainApp(this);
-//
-//    FXMLLoader loaderHasiera = new FXMLLoader(getClass().getResource("/hasiera.fxml"));
-//    hasieraUI = (Parent) loaderHasiera.load();
-//    hasieraController = loaderHasiera.getController();
-//    hasieraController.setMainApp(this);
-//
-//
-//  }
   private void pantailakKargatu() throws IOException {
 
     FXMLLoader loader = new FXMLLoader(getClass().getResource("/Menu.fxml"));
@@ -94,5 +78,8 @@ public class Main extends Application {
 
   public void kargatuTaula() {
     cmsController.kargatuTaula();
+  }
+  public void kargatuEskaneatutakoak(){
+    serverController.kargatuEskaneatutakoak();
   }
 }

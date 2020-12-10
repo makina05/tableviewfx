@@ -163,6 +163,7 @@ public class MenuController {
         } else if (event.getSource()==btnServer){
             paneServer.toFront();
             paneServer.requestFocus();
+            main.kargatuEskaneatutakoak();
         } else if (event.getSource()==btnWhatWeb)
             paneWhatWeb.toFront();
             paneWhatWeb.requestFocus();

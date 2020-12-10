@@ -1,47 +1,47 @@
 package ehu.isad.model;
 
 public class Laguntzailea {
-    private String url;
-    private String cms;
+    private String target;
+    private String string;
     private String version;
-    private String lastUp;
+    private String target_id;
 
-    public Laguntzailea(String url, String cms, String version, String lastUp) {
-        this.url = url;
-        this.cms = cms;
+    public Laguntzailea(String target, String string, String version, String target_id) {
+        this.target = target;
+        this.string = string;
         this.version = version;
-        this.lastUp = lastUp;
+        this.target_id = target_id;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setTarget(String target) {
+        this.target = target;
     }
 
-    public void setCms(String cms) {
-        this.cms = cms;
+    public void setString(String string) {
+        this.string = string;
     }
 
     public void setVersion(String version) {
         this.version = version;
     }
 
-    public void setLastUp(String lastUp) {
-        this.lastUp = lastUp;
+    public void setTarget_id(String target_id) {
+        this.target_id = target_id;
     }
 
-    public String getUrl() {
-        return url;
+    public String getTarget() {
+        return target;
     }
 
-    public String getCms() {
-        return cms;
+    public String getString() {
+        return string;
     }
 
     public String getVersion() {
         return version;
     }
 
-    public String getLastUp() {
-        return lastUp;
+    public String getTarget_id() {
+        return target_id;
     }
 }

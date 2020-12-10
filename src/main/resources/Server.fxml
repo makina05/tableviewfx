@@ -26,10 +26,10 @@
             </Text>
          </children>
       </Pane>
-      <Button layoutX="491.0" layoutY="462.0" mnemonicParsing="false" stylesheets="@server.css" text="Eguneratu" />
-      <TableView layoutX="228.0" layoutY="175.0" prefHeight="252.0" prefWidth="336.0" stylesheets="@server.css">
+      <Button layoutX="491.0" layoutY="462.0" mnemonicParsing="false" onAction="#onClick" stylesheets="@server.css" text="Eguneratu" />
+      <TableView fx:id="taulaId" layoutX="228.0" layoutY="175.0" prefHeight="252.0" prefWidth="336.0" stylesheets="@server.css">
         <columns>
-          <TableColumn prefWidth="335.2000274658203" text="Eskaneatutako webguneak:">
+          <TableColumn fx:id="zutId" prefWidth="335.2000274658203" text="Eskaneatutako webguneak:">
                <graphic>
                   <FontAwesomeIconView glyphName="SEARCH" text="" />
                </graphic>

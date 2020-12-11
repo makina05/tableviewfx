@@ -26,12 +26,22 @@
             </Text>
          </children>
       </Pane>
-      <Button layoutX="491.0" layoutY="462.0" mnemonicParsing="false" onAction="#onClick" stylesheets="@server.css" text="Eguneratu" />
-      <TableView fx:id="taulaId" layoutX="228.0" layoutY="175.0" prefHeight="252.0" prefWidth="336.0" stylesheets="@server.css">
+      <Button layoutX="364.0" layoutY="456.0" mnemonicParsing="false" onAction="#onClick" stylesheets="@server.css" text="Eguneratu" />
+      <TableView fx:id="taulaId" layoutX="94.0" layoutY="175.0" prefHeight="252.0" prefWidth="616.0" stylesheets="@server.css">
         <columns>
-          <TableColumn fx:id="zutId" prefWidth="335.2000274658203" text="Eskaneatutako webguneak:">
+          <TableColumn fx:id="zutId" prefWidth="206.40000915527344" text="Eskaneatutako webguneak">
                <graphic>
                   <FontAwesomeIconView glyphName="SEARCH" text="" />
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="servId" prefWidth="200.79998779296875" text="Server">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SERVER" />
+               </graphic>
+            </TableColumn>
+            <TableColumn fx:id="seId" prefWidth="207.20001220703125" text="Sistema Eragilea">
+               <graphic>
+                  <FontAwesomeIconView glyphName="SUSE" />
                </graphic>
             </TableColumn>
         </columns>

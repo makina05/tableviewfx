@@ -18,6 +18,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class ServerController {
     private ObservableList<Lag2> data;
+    private ObservableList<Lag2> zerbitzari;
 
     @FXML
     private ResourceBundle resources;
@@ -32,8 +33,15 @@ public class ServerController {
     private TableColumn<Lag2, String> zutId;
 
     @FXML
+    private TableColumn<Lag2, String> servId;
+
+    @FXML
+    private TableColumn<Lag2, String> seId;
+
+    @FXML
     void onClick(ActionEvent event) {
         this.kargatuEskaneatutakoak();
+        //this.kargatuServerrak();
     }
 
     @FXML
@@ -42,12 +50,22 @@ public class ServerController {
     }
     public void kargatuEskaneatutakoak(){
         List<Lag2> lagak = ServerDBKud.getInstance().lortuEskaneatutakoak();
-        data = FXCollections.observableArrayList();
-        data.addAll(lagak);
+        data = FXCollections.observableArrayList(lagak);
+
         zutId.setCellValueFactory( new PropertyValueFactory<>("target"));
+        servId.setCellValueFactory( new PropertyValueFactory<>("server"));
+        seId.setCellValueFactory( new PropertyValueFactory<>("se"));
 
         taulaId.setItems(data);
+
     }
+//    public void kargatuServerrak(){
+//        List<Lag2> serv = ServerDBKud.getInstance().lortuServerra();
+//        zerbitzari = FXCollections.observableArrayList();
+//        zerbitzari.addAll(serv);
+//        servId.setCellValueFactory( new PropertyValueFactory<>("target"));
+//        taulaId.setItems(zerbitzari);
+//    }
 
 
 

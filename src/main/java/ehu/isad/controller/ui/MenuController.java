@@ -77,7 +77,7 @@
 //
 //    @FXML
 //    void onClickW(ActionEvent event) throws IOException {
-//       // Parent root = FXMLLoader.load(getClass().getResource("/hasiera.fxml"));
+//       // Parent root = FXMLLoader.load(getClass().getResource("/Hasiera.fxml"));
 //    }
 //
 //    @FXML
@@ -119,6 +119,9 @@ public class MenuController {
     @FXML
     private ServerController serverController;
 
+    @FXML
+    private HasieraController hasieraController;
+
     // hemen kargatzen direnak automatikoki egiten du FXML-n includeak dituelak
     //beste kontroler baten saiatzen bagara kanpoko controller bat instantziatzen ez du automatikoki egiten, horrek ez duelako includea
 
@@ -143,6 +146,9 @@ public class MenuController {
     @FXML
     private AnchorPane paneWhatWeb;
 
+    @FXML
+    private AnchorPane Hasiera;
+
     //ostean erabili dugun eraikitzailea hau ezartzea ere behar du funtziona dezan
     public MenuController() {
 
@@ -164,6 +170,7 @@ public class MenuController {
             paneServer.toFront();
             paneServer.requestFocus();
             main.kargatuEskaneatutakoak();
+            //main.kargatuServerrak();
         } else if (event.getSource()==btnWhatWeb)
             paneWhatWeb.toFront();
             paneWhatWeb.requestFocus();
@@ -181,8 +188,7 @@ public class MenuController {
 
     @FXML
     void initialize() {
-
-
+        this.Hasiera.toFront();
     }
 
 

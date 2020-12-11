@@ -20,7 +20,7 @@ public class ServerDBKud {
     }
 
     public List<Lag2> lortuEskaneatutakoak(){
-        String query = "select t.target from targets t ";
+        String query = "select distinct t.target, s.string from targets t, scans s where s.string like '%Apache%' and s.string like '%(%'";
         DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
         ResultSet rs = dbKudeatzaile.execSQL(query);
 
@@ -29,8 +29,10 @@ public class ServerDBKud {
             while (rs.next()){
 
                 String target = rs.getString("target");
+                String server = rs.getString("string").split(" ")[0];
+                String se = rs.getString("string").split(" ")[1];
 
-                emaitza.add(new Lag2(target));
+                emaitza.add(new Lag2(target,server,se));
 
             }
         } catch (SQLException throwables){
@@ -38,5 +40,24 @@ public class ServerDBKud {
         }
         return emaitza;
     }
+//    public List<Lag2> lortuServerra(){
+//        String query = "select s.string from scans s where s.string like '%Apache%'";
+//        DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
+//        ResultSet rs = dbKudeatzaile.execSQL(query);
+//
+//        List<Lag2> emaitza = new ArrayList<>();
+//        try{
+//            while (rs.next()){
+//
+//                String server = rs.getString("string");
+//
+//                emaitza.add(new Lag2(server));
+//
+//            }
+//        } catch (SQLException throwables){
+//            throwables.printStackTrace();
+//        }
+//        return emaitza;
+//    }
 }
 

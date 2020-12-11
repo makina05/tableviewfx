@@ -18,7 +18,7 @@ public class WhatWebDBKud {
         }
 
     public List<Laguntzailea> lortuOrrialdeak(){
-        String query = "select t.target, s.string, t.target_id from targets t join scans s where s.string like 'Wordpress%' or 'Joomla%' or 'phpMyAdmin%' or 'Drupal%';";
+        String query = "select t.target, s.string, t.target_id from targets t join scans s where s.string like 'Wordpress%' or s.string like 'Joomla%' or s.string like 'phpMyAdmin%' or s.string like 'Drupal%';";
         DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
         ResultSet rs = dbKudeatzaile.execSQL(query);
 

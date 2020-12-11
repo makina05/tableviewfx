@@ -59,7 +59,7 @@ public class CMSController {
 
     @FXML
     void aukeratuta(ActionEvent event) {
-        this.filtratuCombotik();
+        //this.filtratuCombotik();
     }
 
     @FXML
@@ -88,10 +88,11 @@ public class CMSController {
 
     public void filtratu(){
         String textua = fieldId.getText();
+        String izena = comboBoxId.getValue();
         List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
         List<Laguntzailea> listaFiltratua=new ArrayList<>();
         for (int i=0;i<lista.size();i++){
-            if (lista.get(i).getTarget().contains(textua)){
+            if (lista.get(i).getTarget().contains(textua) && lista.get(i).getString().contains(izena)){
                 listaFiltratua.add(lista.get(i));
             }
         }
@@ -99,16 +100,16 @@ public class CMSController {
         tableViewId.setItems(data2);
     }
 
-    public void filtratuCombotik(){
-        String izena = comboBoxId.getValue();
-        List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
-        List<Laguntzailea> listaFiltratuaCombotik=new ArrayList<>();
-        for (int i=0;i<lista.size();i++){
-            if (lista.get(i).getString().contains(izena)){
-                listaFiltratuaCombotik.add(lista.get(i));
-            }
-        }
-        data3 = FXCollections.observableArrayList(listaFiltratuaCombotik);
-        tableViewId.setItems(data3);
-    }
+//    public void filtratuCombotik(){
+//        String izena = comboBoxId.getValue();
+//        List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
+//        List<Laguntzailea> listaFiltratuaCombotik=new ArrayList<>();
+//        for (int i=0;i<lista.size();i++){
+//            if (lista.get(i).getString().contains(izena)){
+//                listaFiltratuaCombotik.add(lista.get(i));
+//            }
+//        }
+//        data3 = FXCollections.observableArrayList(listaFiltratuaCombotik);
+//        tableViewId.setItems(data3);
+//    }
 }

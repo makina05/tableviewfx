@@ -133,9 +133,9 @@ public class CMSController {
                 () -> nameFilter.get().and(provinceFilter.get()),
                 nameFilter, provinceFilter));
 
-//        SortedList<Laguntzailea> sortedData = new SortedList<>(filteredData);
-//        sortedData.comparatorProperty().bind(tableViewId.comparatorProperty());
-//        tableViewId.setItems(sortedData);
+        SortedList<Laguntzailea> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(tableViewId.comparatorProperty());
+        tableViewId.setItems(sortedData);
         tableViewId.setItems(filteredData);
     }
 

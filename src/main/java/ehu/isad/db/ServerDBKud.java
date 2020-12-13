@@ -20,7 +20,7 @@ public class ServerDBKud {
     }
 
     public List<Lag2> lortuEskaneatutakoak(){
-        String query = "select distinct t.target, s.string from targets t, scans s where s.string like '%Apache%' and s.string like '%(%'";
+        String query = "select distinct t.target, s.string from targets t, scans s where s.string like '%Apache%' or '%NGINX%' or '%Node.js%' and s.string like '%(%'";
         DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
         ResultSet rs = dbKudeatzaile.execSQL(query);
 

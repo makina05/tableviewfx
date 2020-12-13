@@ -13,9 +13,9 @@
          <children>
             <Pane layoutX="-5.0" layoutY="374.0" prefHeight="201.0" prefWidth="870.0" style="-fx-background-color: black;">
                <children>
-                  <ImageView fitHeight="68.0" fitWidth="388.0" layoutX="241.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="isadID" fitHeight="68.0" fitWidth="388.0" layoutX="241.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../Desktop/isad_2021.png" />
+                        <Image url="@irudiak/isad_2021.png" />
                      </image>
                   </ImageView>
                   <FontAwesomeIconView fill="WHITE" glyphName="BLIND" layoutX="159.0" layoutY="113.0" size="36" wrappingWidth="50.4000244140625">
@@ -25,14 +25,14 @@
                   </FontAwesomeIconView>
                </children>
             </Pane>
-            <ImageView fitHeight="255.0" fitWidth="526.0" layoutX="167.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="wwID" fitHeight="255.0" fitWidth="526.0" layoutX="167.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/whatweb-heading.png" />
+                  <Image url="@irudiak/whatweb-heading.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="133.0" fitWidth="316.0" layoutX="272.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="txblID" fitHeight="99.0" fitWidth="330.0" layoutX="279.0" layoutY="273.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../Desktop/TXBL.png" />
+                  <Image url="@irudiak/TXBL.png" />
                </image>
             </ImageView>
          </children>

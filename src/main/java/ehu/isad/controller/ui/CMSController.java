@@ -95,48 +95,48 @@ public class CMSController {
     }
 
     public void filtratu(){
-//        String textua = fieldId.getText();
-//        String izena = comboBoxId.getValue();
-//        List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
-//        List<Laguntzailea> listaFiltratua=new ArrayList<>();
-//        for (int i=0;i<lista.size();i++){
-//            if (lista.get(i).getTarget().contains(textua) && lista.get(i).getString().contains(izena)){
-//                listaFiltratua.add(lista.get(i));
-//            }
-//        }
-//        data2 = FXCollections.observableArrayList(listaFiltratua);
-//        tableViewId.setItems(data2);
+        String textua = fieldId.getText();
+        String izena = comboBoxId.getValue();
+        List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
+        List<Laguntzailea> listaFiltratua=new ArrayList<>();
+        for (int i=0;i<lista.size();i++){
+            if (lista.get(i).getTarget().contains(textua) && lista.get(i).getString().contains(izena)){
+                listaFiltratua.add(lista.get(i));
+            }
+        }
+        data2 = FXCollections.observableArrayList(listaFiltratua);
+        tableViewId.setItems(data2);
 
 
 
 
         // see: https://stackoverflow.com/questions/42138867/filtering-jfx-tableview-with-multiple-values
-        List<Laguntzailea> lagak = WhatWebDBKud.getInstance().lortuOrrialdeak();
-        data2 = FXCollections.observableArrayList(lagak);
-
-        ObjectProperty<Predicate<Laguntzailea>> nameFilter = new SimpleObjectProperty<>();
-
-        nameFilter.bind(Bindings.createObjectBinding(() ->
-                        webgune ->  webgune.getTarget().toLowerCase().contains(fieldId.getText().toLowerCase()) ||
-                                webgune.getString().contains(fieldId.getText().toLowerCase()) ,
-                fieldId.textProperty()));
-
-        ObjectProperty<Predicate<Laguntzailea>> provinceFilter = new SimpleObjectProperty<>();
-        provinceFilter.bind(Bindings.createObjectBinding(() ->
-                        webgune -> comboBoxId.getValue().equals("") || comboBoxId.getValue().equals(  webgune.getString() ),
-                comboBoxId.valueProperty()));
-
-
-        FilteredList<Laguntzailea> filteredData = new FilteredList<>(data2, b->true);
-
-        filteredData.predicateProperty().bind(Bindings.createObjectBinding(
-                () -> nameFilter.get().and(provinceFilter.get()),
-                nameFilter, provinceFilter));
-
-        SortedList<Laguntzailea> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(tableViewId.comparatorProperty());
-        tableViewId.setItems(sortedData);
-        tableViewId.setItems(filteredData);
+//        List<Laguntzailea> lagak = WhatWebDBKud.getInstance().lortuOrrialdeak();
+//        data2 = FXCollections.observableArrayList(lagak);
+//
+//        ObjectProperty<Predicate<Laguntzailea>> nameFilter = new SimpleObjectProperty<>();
+//
+//        nameFilter.bind(Bindings.createObjectBinding(() ->
+//                        webgune ->  webgune.getTarget().toLowerCase().contains(fieldId.getText().toLowerCase()) ||
+//                                webgune.getString().contains(fieldId.getText().toLowerCase()) ,
+//                fieldId.textProperty()));
+//
+//        ObjectProperty<Predicate<Laguntzailea>> provinceFilter = new SimpleObjectProperty<>();
+//        provinceFilter.bind(Bindings.createObjectBinding(() ->
+//                        webgune -> comboBoxId.getValue().equals("") || comboBoxId.getValue().equals(  webgune.getString() ),
+//                comboBoxId.valueProperty()));
+//
+//
+//        FilteredList<Laguntzailea> filteredData = new FilteredList<>(data2, b->true);
+//
+//        filteredData.predicateProperty().bind(Bindings.createObjectBinding(
+//                () -> nameFilter.get().and(provinceFilter.get()),
+//                nameFilter, provinceFilter));
+//
+//        SortedList<Laguntzailea> sortedData = new SortedList<>(filteredData);
+//        sortedData.comparatorProperty().bind(tableViewId.comparatorProperty());
+//        tableViewId.setItems(sortedData);
+//        tableViewId.setItems(filteredData);
     }
 
 

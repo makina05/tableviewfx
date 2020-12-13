@@ -80,8 +80,6 @@ public class Main extends Application {
   public void kargatuTaula() {
     cmsController.kargatuTaula();
   }
-  public void kargatuEskaneatutakoak(){
-    serverController.kargatuEskaneatutakoak();
-  }
+  public void kargatuEskaneatutakoak(){ serverController.kargatuEskaneatutakoak(); }
 //  public void kargatuServerrak(){ serverController.kargatuServerrak();}
 }

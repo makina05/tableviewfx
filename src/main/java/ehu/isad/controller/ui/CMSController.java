@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
 
 import javax.xml.transform.Result;
 
@@ -31,7 +32,8 @@ public class CMSController {
 
     @FXML
     private ResourceBundle resources;
-
+    @FXML
+    private Pane cmsGoikoPane;
     @FXML
     private URL location;
 

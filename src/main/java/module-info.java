@@ -6,6 +6,7 @@ open module scenebuilder {
 
   requires de.jensd.fx.fontawesomefx.fontawesome;
     requires java.desktop;
+    requires AnimateFX;
     //requires  de.jensd.fx.fontawesomefx.commons;
   exports ehu.isad;
 

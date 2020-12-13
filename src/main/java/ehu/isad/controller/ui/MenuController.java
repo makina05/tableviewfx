@@ -97,7 +97,7 @@
 //}
 
 package ehu.isad.controller.ui;
-
+import animatefx.animation.*;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import ehu.isad.Main;
 import javafx.event.ActionEvent;
@@ -166,14 +166,20 @@ public class MenuController {
             paneCMS.toFront();
             paneCMS.requestFocus();
             main.kargatuTaula();
+            //animazioa
+            new RotateIn(paneCMS).play();
         } else if (event.getSource()==btnServer){
             paneServer.toFront();
             paneServer.requestFocus();
             main.kargatuEskaneatutakoak();
             //main.kargatuServerrak();
+            //animazioa
+            new Wobble(paneServer).play();
         } else if (event.getSource()==btnWhatWeb)
             paneWhatWeb.toFront();
             paneWhatWeb.requestFocus();
+            //animazioa
+            new Pulse(paneWhatWeb).play();
     }
 
 

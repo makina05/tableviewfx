@@ -29,7 +29,7 @@
                 <RowConstraints maxHeight="446.0" minHeight="10.0" prefHeight="446.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Pane prefHeight="118.0" prefWidth="829.0" style="-fx-background-color: #7156DD;" stylesheets="@fullpackstyling.css" GridPane.columnIndex="1">
+                <Pane fx:id="cmsGoikoPane" prefHeight="118.0" prefWidth="829.0" style="-fx-background-color: #7156DD;" stylesheets="@fullpackstyling.css" GridPane.columnIndex="1">
                <children>
                   <Text fill="WHITE" layoutX="36.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WordPress,joomla,phpMyAdmin,Drupal">
                      <font>
@@ -82,7 +82,7 @@
                                 <Insets right="10.0" />
                             </HBox.margin>
                             <graphic>
-                                <FontAwesomeIconView fill="WHITE" glyphName="PLUS" size="16" textAlignment="CENTER" wrappingWidth="18.428571701049805">
+                                <FontAwesomeIconView fill="WHITE" glyphName="TRASH" size="16" textAlignment="CENTER" wrappingWidth="18.428571701049805">
                                     <font>
                                         <Font size="16.0" />
                                     </font>

@@ -9,7 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServerDBKud {
-
+    String server;
+    String se;
     private static final ServerDBKud instance = new ServerDBKud();
 
     public static ServerDBKud getInstance(){
@@ -20,7 +21,8 @@ public class ServerDBKud {
     }
 
     public List<Lag2> lortuEskaneatutakoak(){
-        String query = "select distinct t.target, s.string from targets t, scans s where s.string like '%Apache%' or '%NGINX%' or '%Node.js%' and s.string like '%(%'";
+
+        String query = "select distinct t.target, s.string from targets t inner join scans s on t.target_id=s.target_id where s.string like '%nginx%' or s.string like '%Apache%' or s.string like '%Node.js%' and s.string like '%(%'";
         DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
         ResultSet rs = dbKudeatzaile.execSQL(query);
 
@@ -29,8 +31,22 @@ public class ServerDBKud {
             while (rs.next()){
 
                 String target = rs.getString("target");
-                String server = rs.getString("string").split(" ")[0];
-                String se = rs.getString("string").split(" ")[1];
+                if (rs.getString("string").contains(" ")) {
+                    if (rs.getString("string").split(" ")[0] == null) {
+                        this.server = "Unknown";
+                        this.se = "Unknown";
+                    } else if (rs.getString("string").split(" ")[1] == null) {
+                        this.server = rs.getString("string").split(" ")[0];
+                        this.se = "Unknown";
+                    } else {
+                        this.server = rs.getString("string").split(" ")[0];
+                        this.se = rs.getString("string").split(" ")[1];
+                    }
+                }
+                else{
+                    this.server=rs.getString("string");
+                    this.se = "Unknown";
+                }
 
                 emaitza.add(new Lag2(target,server,se));
 

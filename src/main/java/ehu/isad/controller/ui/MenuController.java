@@ -161,7 +161,7 @@ public class MenuController {
 
     @FXML
     void changeScene(ActionEvent event) {
-
+//atal honetan kargatuko dira pane ezberdinak sakatutako botoiaren arabera; gainera, animazioak hemen txertatzen dira
         if (event.getSource()==btnCMS) {
             paneCMS.toFront();
             paneCMS.requestFocus();
@@ -172,7 +172,6 @@ public class MenuController {
             paneServer.toFront();
             paneServer.requestFocus();
             main.kargatuEskaneatutakoak();
-            //main.kargatuServerrak();
             //animazioa
             new Wobble(paneServer).play();
         } else if (event.getSource()==btnWhatWeb)

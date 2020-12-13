@@ -41,7 +41,6 @@ public class ServerController {
     @FXML
     void onClick(ActionEvent event) {
         this.kargatuEskaneatutakoak();
-        //this.kargatuServerrak();
     }
 
     @FXML
@@ -49,6 +48,7 @@ public class ServerController {
 
     }
     public void kargatuEskaneatutakoak(){
+        //server erlaitzeko taula kargatzen da hemen
         List<Lag2> lagak = ServerDBKud.getInstance().lortuEskaneatutakoak();
         data = FXCollections.observableArrayList(lagak);
 
@@ -59,15 +59,4 @@ public class ServerController {
         taulaId.setItems(data);
 
     }
-//    public void kargatuServerrak(){
-//        List<Lag2> serv = ServerDBKud.getInstance().lortuServerra();
-//        zerbitzari = FXCollections.observableArrayList();
-//        zerbitzari.addAll(serv);
-//        servId.setCellValueFactory( new PropertyValueFactory<>("target"));
-//        taulaId.setItems(zerbitzari);
-//    }
-
-
-
-
 }

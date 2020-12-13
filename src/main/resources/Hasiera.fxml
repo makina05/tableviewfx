@@ -11,7 +11,7 @@
    <children>
       <Pane layoutX="-2.0" prefHeight="566.0" prefWidth="862.0" style="-fx-background-color: #2150AA;">
          <children>
-            <Pane layoutX="-5.0" layoutY="374.0" prefHeight="201.0" prefWidth="870.0" style="-fx-background-color: black;">
+            <Pane layoutX="0.0" layoutY="374.0" prefHeight="201.0" prefWidth="862.0" style="-fx-background-color: black;">
                <children>
                   <ImageView fx:id="isadID" fitHeight="68.0" fitWidth="388.0" layoutX="241.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
                      <image>

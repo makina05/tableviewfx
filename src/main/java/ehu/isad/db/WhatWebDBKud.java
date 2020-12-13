@@ -18,6 +18,7 @@ public class WhatWebDBKud {
         }
 
     public List<Laguntzailea> lortuOrrialdeak(){
+//sartutako weborriaren analisitik izena, CMSa eta IDa lortzeko eskaera gero CMS erlaitzeko taulan sartzeko
         String query = "select t.target, s.string, t.target_id from targets t inner join scans s on t.target_id=s.target_id where s.string like 'Wordpress%' or s.string like 'Joomla%' or s.string like 'phpMyAdmin%' or s.string like 'Drupal%';";
         DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
         ResultSet rs = dbKudeatzaile.execSQL(query);
@@ -31,8 +32,7 @@ public class WhatWebDBKud {
                 String string = rs.getString("string").split(" ")[0];
                 String version = rs.getString("string").split(" ")[1];
 
-//                String sep1 = string.split(" ")[0];
-//                String sep2 = string.split(" ")[1];
+                //emaitza gordetzeko Laguntzaile klasea erabiliko dugu
 
                 Laguntzailea laguntzailea = new Laguntzailea(target,string,version,target_id);
                 emaitza.add(laguntzailea);

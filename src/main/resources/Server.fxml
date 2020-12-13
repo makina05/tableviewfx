@@ -41,7 +41,7 @@
             </TableColumn>
             <TableColumn fx:id="seId" prefWidth="207.20001220703125" text="Sistema Eragilea">
                <graphic>
-                  <FontAwesomeIconView glyphName="SUSE" />
+                  <FontAwesomeIconView glyphName="LAPTOP" />
                </graphic>
             </TableColumn>
         </columns>

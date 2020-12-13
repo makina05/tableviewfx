@@ -41,13 +41,9 @@ public class WhatWebController {
     @FXML
     private TextField txtF;
 
-    public WhatWebController() {
-        System.out.println("HasieraKud eraiki da");
-    }
-
-
     @FXML
     void onclick(ActionEvent event) {
+        //whatweb erlaitzeko web orriaren analisiak emandako emaitza hemen kudeatzen da
 
         txtArea.setWrapText(true);
         txtArea.setText("Kargatzen. Itxaron, mesedez....");
@@ -82,7 +78,7 @@ public class WhatWebController {
     }
 
     private void txertatuDBn() {
-        // setup properties sqlPath kargatu DONE?
+        // setup properties sqlPath kargatzen da
         // sql fitxategia lerroz lerro irakurri
             // lerroa.replace(" IGNORE", " OR IGNORE")
             // exekutatu lerroa sqliten (insert)
@@ -138,15 +134,15 @@ public class WhatWebController {
         try {
             String line;
             Process p = null;
-            if(System.getProperty("os.name").toLowerCase().contains("win")) {
+            if(System.getProperty("os.name").toLowerCase().contains("win")) { //windows bada OSa
                 System.out.println(uri);
         String komandoa = "wsl /usr/bin/whatweb --color=never --log-sql=/mnt/c"+ non +" "+ uri;
                 // DONE: sqlPath pasatu parametro gisa
                 p = Runtime.getRuntime().exec
                         (komandoa);
 
-            } else { //TODO:windows comandoa linuxera pasatu
-                p = Runtime.getRuntime().exec("/usr/bin/whatweb --color=never " + uri);
+            } else { //Linux baldin bada OSa
+                p = Runtime.getRuntime().exec("/usr/bin/whatweb --color=never --log-sql=" + non +" "+ uri);
             }
             BufferedReader input =
                     new BufferedReader(new InputStreamReader(p.getInputStream()));

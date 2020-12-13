@@ -63,6 +63,7 @@ public class CMSController {
 
     @FXML
     void garbiClick(ActionEvent event){
+        //metodo honekin iragazkietan jarritakoa garbitu eta hasierako taula birkargatuko dugu
         this.comboBoxId.getSelectionModel().clearSelection();
         this.comboBoxId.setPromptText("Aukeratu CMS bat");
         this.fieldId.clear();
@@ -82,7 +83,7 @@ public class CMSController {
 
     @FXML
     public void initialize(){
-
+        //comboBox-ak dituen aukerekin beteko dugu
         List<String> cl = new ArrayList<>();
         cl.add("WordPress");
         cl.add("Joomla");
@@ -92,6 +93,7 @@ public class CMSController {
         comboBoxId.setItems(cmsak);
     }
     public void kargatuTaula(){
+        //WhatwebDBKud kudeatzaileari eskatuko diogu DBtik taula sortzeko datuak hartzea
         List<Laguntzailea> lagak = WhatWebDBKud.getInstance().lortuOrrialdeak();
         data = FXCollections.observableArrayList(lagak);
 
@@ -103,13 +105,14 @@ public class CMSController {
         tableViewId.setItems(data);
     }
 
-    public void filtratu(){
+    public void filtratu() {
+        //datuen iragazketa sinple bat egingo du behin ComboBox-ean aukera bat eginda
         String textua = fieldId.getText();
         String izena = comboBoxId.getValue();
         List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
-        List<Laguntzailea> listaFiltratua=new ArrayList<>();
-        for (int i=0;i<lista.size();i++){
-            if (lista.get(i).getTarget().contains(textua) && lista.get(i).getString().contains(izena)){
+        List<Laguntzailea> listaFiltratua = new ArrayList<>();
+        for (int i = 0; i < lista.size(); i++) {
+            if (lista.get(i).getTarget().contains(textua) && lista.get(i).getString().contains(izena)) {
                 listaFiltratua.add(lista.get(i));
             }
         }
@@ -117,7 +120,7 @@ public class CMSController {
         tableViewId.setItems(data2);
 
 
-
+        //ondorengo kodea gordeko da etorkizunean FilteredList-a erabiltzeko iragazkia egiteko.
 
         // see: https://stackoverflow.com/questions/42138867/filtering-jfx-tableview-with-multiple-values
 //        List<Laguntzailea> lagak = WhatWebDBKud.getInstance().lortuOrrialdeak();
@@ -147,18 +150,4 @@ public class CMSController {
 //        tableViewId.setItems(sortedData);
 //        tableViewId.setItems(filteredData);
     }
-
-
-//    public void filtratuCombotik(){
-//        String izena = comboBoxId.getValue();
-//        List<Laguntzailea> lista = WhatWebDBKud.getInstance().lortuOrrialdeak();
-//        List<Laguntzailea> listaFiltratuaCombotik=new ArrayList<>();
-//        for (int i=0;i<lista.size();i++){
-//            if (lista.get(i).getString().contains(izena)){
-//                listaFiltratuaCombotik.add(lista.get(i));
-//            }
-//        }
-//        data3 = FXCollections.observableArrayList(listaFiltratuaCombotik);
-//        tableViewId.setItems(data3);
-//    }
 }

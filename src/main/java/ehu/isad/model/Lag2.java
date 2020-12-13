@@ -1,5 +1,9 @@
 package ehu.isad.model;
 
+
+//Server erlaitzeko taula betetzeko erabiliko dugu klase laguntzaile hau
+
+
 public class Lag2 {
 
     private String target;

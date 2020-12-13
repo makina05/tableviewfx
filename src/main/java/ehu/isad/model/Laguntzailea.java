@@ -1,6 +1,11 @@
 package ehu.isad.model;
 
+
+//CMS erlaitzeko taul abetetzeko erabiliko dugu klase laguntzaile hau
+
+
 public class Laguntzailea {
+
     private String target;
     private String string;
     private String version;

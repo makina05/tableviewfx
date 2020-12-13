@@ -10,7 +10,7 @@ import java.util.Properties;
 
 
 public class DBKudeatzaile {
-
+//datubasearekin konexioa egingo dugu
 	Connection conn = null;
 
 	private void conOpen(String dbpath) {
@@ -27,7 +27,7 @@ public class DBKudeatzaile {
 
 
 	private void conClose() {
-
+//konexioa ixteko behar baldin bada
 		if (conn != null)
 			try {
 				conn.close();
@@ -38,7 +38,7 @@ public class DBKudeatzaile {
 		System.out.println("Database connection terminated");
 
 	}
-
+//eskaerak kudeatzeko...
 	private ResultSet query(Statement s, String query) {
 
 		ResultSet rs = null;

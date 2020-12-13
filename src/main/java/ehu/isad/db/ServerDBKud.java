@@ -21,7 +21,7 @@ public class ServerDBKud {
     }
 
     public List<Lag2> lortuEskaneatutakoak(){
-
+//eskaneatutako orrialde guztien izena, zerbitzaria eta OSa lortzeko eskaera
         String query = "select distinct t.target, s.string from targets t inner join scans s on t.target_id=s.target_id where s.string like '%nginx%' or s.string like '%Apache%' or s.string like '%Node.js%' and s.string like '%(%'";
         DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
         ResultSet rs = dbKudeatzaile.execSQL(query);
@@ -29,21 +29,21 @@ public class ServerDBKud {
         List<Lag2> emaitza = new ArrayList<>();
         try{
             while (rs.next()){
-
+//Emaitzak era ezberdinetan agertzen direnez, splita ez du funtzionatzen baldin eta OSa aurkitu ez bada. Horregatik zenbait baldintza sortu ditugu
                 String target = rs.getString("target");
-                if (rs.getString("string").contains(" ")) {
-                    if (rs.getString("string").split(" ")[0] == null) {
+                if (rs.getString("string").contains(" ")) { //zerbitzariaz aparte zeozer gehiago egon daiteke
+                    if (rs.getString("string").split(" ")[0] == null) { //ez dakigu ezer
                         this.server = "Unknown";
                         this.se = "Unknown";
-                    } else if (rs.getString("string").split(" ")[1] == null) {
+                    } else if (rs.getString("string").split(" ")[1] == null) { //zerbitzaria soilik dakigu
                         this.server = rs.getString("string").split(" ")[0];
                         this.se = "Unknown";
-                    } else {
+                    } else { //bai zerbitzaria bai OSa badakizkigu
                         this.server = rs.getString("string").split(" ")[0];
                         this.se = rs.getString("string").split(" ")[1];
                     }
                 }
-                else{
+                else{ //zerbitzaria soilik agertzen da ezer gehiago gabe
                     this.server=rs.getString("string");
                     this.se = "Unknown";
                 }
@@ -56,24 +56,5 @@ public class ServerDBKud {
         }
         return emaitza;
     }
-//    public List<Lag2> lortuServerra(){
-//        String query = "select s.string from scans s where s.string like '%Apache%'";
-//        DBKudeatzaile dbKudeatzaile = DBKudeatzaile.getInstantzia();
-//        ResultSet rs = dbKudeatzaile.execSQL(query);
-//
-//        List<Lag2> emaitza = new ArrayList<>();
-//        try{
-//            while (rs.next()){
-//
-//                String server = rs.getString("string");
-//
-//                emaitza.add(new Lag2(server));
-//
-//            }
-//        } catch (SQLException throwables){
-//            throwables.printStackTrace();
-//        }
-//        return emaitza;
-//    }
 }
 

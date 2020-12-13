@@ -66,6 +66,7 @@ public class CMSController {
         this.comboBoxId.getSelectionModel().clearSelection();
         this.comboBoxId.setPromptText("Aukeratu CMS bat");
         this.fieldId.clear();
+        this.kargatuTaula();
     }
 
 

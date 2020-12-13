@@ -57,8 +57,14 @@ public class CMSController {
     private ComboBox<String> comboBoxId;
 
     @FXML
-    private Button btnAddURL;
+    private Button garbituId;
 
+    @FXML
+    void garbiClick(ActionEvent event){
+        this.comboBoxId.getSelectionModel().clearSelection();
+        this.comboBoxId.setPromptText("Aukeratu CMS bat");
+        this.fieldId.clear();
+    }
 
 
     @FXML

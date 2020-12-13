@@ -77,7 +77,7 @@
                                 <Insets right="10.0" />
                             </HBox.margin>
                         </ComboBox>
-                        <Button fx:id="btnAddURL" alignment="CENTER" graphicTextGap="15.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="196.0" style="-fx-background-color: #3F2B63;" text="Add URL" textAlignment="CENTER" textFill="WHITE">
+                        <Button fx:id="garbituId" alignment="CENTER" graphicTextGap="15.0" mnemonicParsing="false" onAction="#garbiClick" prefHeight="25.0" prefWidth="196.0" style="-fx-background-color: #3F2B63;" text="Garbitu" textAlignment="CENTER" textFill="WHITE">
                             <HBox.margin>
                                 <Insets right="10.0" />
                             </HBox.margin>

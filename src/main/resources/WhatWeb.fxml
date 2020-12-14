@@ -32,7 +32,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="352.0" prefWidth="607.0">
                      <children>
-                        <TextField fx:id="txtF" layoutX="54.0" layoutY="58.0" prefHeight="26.0" prefWidth="443.0" text="www.ikasten.io" />
+                        <TextField fx:id="txtF" layoutX="54.0" layoutY="58.0" prefHeight="26.0" prefWidth="443.0" />
                           <Button fx:id="btn" layoutX="407.0" layoutY="312.0" mnemonicParsing="false" onAction="#onclick" style="-fx-background-color: green;" stylesheets="@fullpackstyling.css" text="Eskaneatu" textFill="WHITE" />
                           <TextArea fx:id="txtArea" layoutX="51.0" layoutY="90.0" prefHeight="211.0" prefWidth="472.0" />
                         <Text layoutX="17.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="URL:" wrappingWidth="34.07183837890625" />
